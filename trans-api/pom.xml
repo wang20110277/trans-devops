@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>trans-devops</artifactId>
+        <groupId>com.trans</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <artifactId>trans-api</artifactId>
+    <!-- 一般来说父级项目的packaging都为pom，packaging默认类型jar类型-->
+    <packaging>pom</packaging>
+    <modules>
+        <module>trans-app-api</module>
+        <module>trans-bpm-api</module>
+        <module>trans-build-api</module>
+        <module>trans-deploy-api</module>
+        <module>trans-issue-api</module>
+        <module>trans-pipeline-api</module>
+        <module>trans-system-api</module>
+        <module>trans-user-api</module>
+        <module>trans-wiki-api</module>
+        <module>trans-open-api</module>
+        <module>trans-project-api</module>
+    </modules>
+
+
+</project>
