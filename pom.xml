@@ -8,12 +8,12 @@
     <artifactId>trans-devops</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>trans-api</module>
         <module>trans-base</module>
-        <module>trans-cloud</module>
+        <module>trans-api</module>
         <module>trans-common</module>
-        <module>trans-plugins</module>
         <module>trans-dataccess</module>
+        <module>trans-plugins</module>
+        <module>trans-cloud</module>
     </modules>
     <!-- 一般来说父级项目的packaging都为pom，packaging默认类型jar类型-->
     <packaging>pom</packaging>
@@ -22,6 +22,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <lombok.version>1.18.2</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -53,6 +54,12 @@
                 <version>2.1.2</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
