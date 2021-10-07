@@ -38,5 +38,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!--trans-base -->
+        <dependency>
+            <groupId>com.trans</groupId>
+            <artifactId>trans-base</artifactId>
+        </dependency>
     </dependencies>
 </project>

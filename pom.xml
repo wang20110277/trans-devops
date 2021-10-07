@@ -27,6 +27,7 @@
         <alibaba.cloud.version>2.2.1.RELEASE</alibaba.cloud.version>
         <mybatis.starter.version>2.1.2</mybatis.starter.version>
         <lombok.version>1.18.2</lombok.version>
+        <trans.base.version>1.0-SNAPSHOT</trans.base.version>
     </properties>
 
     <dependencyManagement>
@@ -65,6 +66,12 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <!--trans-base -->
+            <dependency>
+                <groupId>com.trans</groupId>
+                <artifactId>trans-base</artifactId>
+                <version>${trans.base.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
