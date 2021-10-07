@@ -1,0 +1,4 @@
+@startuml
+system -> project: manage project Request
+project --> system: manage project Response
+@enduml
