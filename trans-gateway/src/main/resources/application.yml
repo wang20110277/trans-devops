@@ -18,18 +18,24 @@ spring:
           locator:
             enabled: true # 让gateway可以发现nacos中的微服务
         routes:
-        - id: open
-          uri: lb://open
-          predicates:
-          - Path=/open/**
-          filters:
-          - StripPrefix= 1
-        - id: system
-          uri: lb://system
-          predicates:
-          - Path=/system/**
-          filters:
-          - StripPrefix= 1
+          - id: open
+            uri: lb://open
+            predicates:
+              - Path=/open/**
+            filters:
+              - StripPrefix= 1
+          - id: system
+            uri: lb://system
+            predicates:
+              - Path=/system/**
+            filters:
+              - StripPrefix= 1
+          - id: app
+            uri: lb://app
+            predicates:
+              - Path=/app/**
+            filters:
+              - StripPrefix= 1
 
 #日志配置
 logging:
