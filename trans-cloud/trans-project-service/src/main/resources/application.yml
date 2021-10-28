@@ -5,6 +5,14 @@ spring:
         active: dev
     application:
       name: trans-project
+    cloud:
+      nacos:
+        config:
+          file-extension: yaml
+          server-addr: 127.0.0.1:8848
+        discovery:
+          #Nacos的注册地址
+          server-addr: 127.0.0.1:8848
     servlet:
       multipart:
         enabled: true
@@ -15,14 +23,6 @@ spring:
     jackson:
       time-zone: GMT+8
       date-format: yyyy-MM-dd HH:mm:ss
-    cloud:
-      nacos:
-        config:
-          file-extension: yaml
-          server-addr: 127.0.0.1:8848
-        discovery:
-          #Nacos的注册地址
-          server-addr: 127.0.0.1:8848
 
 #日志配置
 logging:

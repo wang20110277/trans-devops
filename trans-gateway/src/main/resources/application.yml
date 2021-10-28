@@ -1,0 +1,40 @@
+server:
+  port: 16800
+spring:
+    profiles:
+        active: dev
+    application:
+      name: trans-gateway
+    cloud:
+      nacos:
+        config:
+          file-extension: yaml
+          server-addr: 127.0.0.1:8848
+        discovery:
+          #Nacos的注册地址
+          server-addr: 127.0.0.1:8848
+      gateway:
+        discovery:
+          locator:
+            enabled: true # 让gateway可以发现nacos中的微服务
+        routes:
+        - id: open
+          uri: lb://open
+          predicates:
+          - Path=/open/**
+          filters:
+          - StripPrefix= 1
+        - id: system
+          uri: lb://system
+          predicates:
+          - Path=/system/**
+          filters:
+          - StripPrefix= 1
+
+#日志配置
+logging:
+  pattern:
+    console: "%msg%n"
+  level.root: INFO
+  level.org.springframework.web: DEBUG
+  level.com.xes.qa.eten: DEBUG
