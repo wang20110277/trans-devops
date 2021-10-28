@@ -1,0 +1,33 @@
+server:
+  port: 16802
+spring:
+    profiles:
+        active: dev
+    application:
+      name: trans-project
+    servlet:
+      multipart:
+        enabled: true
+        max-file-size: 1024MB
+        max-request-size: 1024MB
+        file-size-threshold: 1024MB
+    # jackson时间格式化
+    jackson:
+      time-zone: GMT+8
+      date-format: yyyy-MM-dd HH:mm:ss
+    cloud:
+      nacos:
+        config:
+          file-extension: yaml
+          server-addr: 127.0.0.1:8848
+        discovery:
+          #Nacos的注册地址
+          server-addr: 127.0.0.1:8848
+
+#日志配置
+logging:
+  pattern:
+      console: "%msg%n"
+  level.root: INFO
+  level.org.springframework.web: DEBUG
+  level.com.xes.qa.eten: DEBUG

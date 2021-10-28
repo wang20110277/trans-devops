@@ -1,0 +1,24 @@
+datasource:
+  connectionTestQuery: SELECT 1
+  connectionTimeoutMs: 30000
+  driverClassName: com.mysql.cj.jdbc.Driver
+  idleTimeoutMs: 3000
+  maxLifetimeMs: 1800000
+  maxPoolSize: 10
+  minIdle: 5
+  transactionTimeoutS: 30
+  master:
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/trans_project_service?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
+    password: root
+    username: root
+  slave:
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/jira?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
+    password: root
+    username: root
+
+# ====================MybatisPlus====================
+mybatis-plus:
+  type-aliases-package: com.trans.model
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
