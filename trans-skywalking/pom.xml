@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>trans-skywalking</artifactId>
-
+    <version>8.7.0</version>
+    <!-- 一般来说父级项目的packaging都为pom，packaging默认类型jar类型-->
+    <packaging>pom</packaging>
 
 </project>

@@ -26,8 +26,11 @@ spring:
 
 #日志配置
 logging:
-  pattern:
-    console: "%msg%n"
-  level.root: INFO
-  level.org.springframework.web: DEBUG
-  level.com.xes.qa.eten: DEBUG
+  level:
+    root: WARN
+    org:
+      springframework:
+        security: DEBUG
+        web: ERROR
+    com:
+      trans: DEBUG
