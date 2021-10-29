@@ -14,19 +14,20 @@
     <packaging>pom</packaging>
     <modules>
         <module>trans-jira-plugin</module>
+        <module>trans-teambition-plugin</module>
         <module>trans-gitlab-plugin</module>
         <module>trans-jenkins-plugin</module>
-        <module>trans-dingding-plugin</module>
-        <module>trans-ldap-plugin</module>
         <module>trans-activity-plugin</module>
-        <module>trans-minio-plugin</module>
-        <module>trans-teambition-plugin</module>
-        <module>trans-rabbitmq-plugin</module>
-        <module>trans-elasticsearch-plugin</module>
-        <module>trans-ceph-plugin</module>
+        <module>trans-dingding-plugin</module>
+        <module>trans-wecom-plugin</module>
+        <module>trans-ldap-plugin</module>
         <module>trans-ad-plugin</module>
-        <module>trans-mongodb-plugin</module>
+        <module>trans-minio-plugin</module>
+        <module>trans-ceph-plugin</module>
+        <module>trans-rabbitmq-plugin</module>
         <module>trans-rocketmq-plugin</module>
+        <module>trans-elasticsearch-plugin</module>
+        <module>trans-mongodb-plugin</module>
         <module>trans-xxljob-plugin</module>
         <module>trans-elasticjob-plugin</module>
     </modules>
