@@ -24,6 +24,7 @@
         <module>trans-issue-service</module>
         <module>trans-open-service</module>
         <module>trans-project-service</module>
+        <module>trans-test-service</module>
     </modules>
     <dependencies>
         <dependency>
