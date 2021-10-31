@@ -15,7 +15,7 @@
         <module>trans-plugins</module>
         <module>trans-gateway</module>
         <module>trans-skywalking</module>
-        <module>trans-outh2</module>
+        <module>trans-oauth2</module>
         <module>trans-cloud</module>
     </modules>
     <!-- 一般来说父级项目的packaging都为pom，packaging默认类型jar类型-->

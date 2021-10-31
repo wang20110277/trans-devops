@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>trans-outh2</artifactId>
+    <artifactId>trans-oauth2</artifactId>
 
 
 </project>
