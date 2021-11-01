@@ -1,0 +1,15 @@
+server:
+  port: 16600
+spring:
+    profiles:
+        active: dev
+    application:
+      name: trans-auth
+    cloud:
+      nacos:
+        config:
+          file-extension: yaml
+          server-addr: 127.0.0.1:8848
+        discovery:
+          #Nacos的注册地址
+          server-addr: 127.0.0.1:8848
