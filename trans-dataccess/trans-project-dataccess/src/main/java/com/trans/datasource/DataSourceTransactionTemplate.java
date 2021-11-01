@@ -1,4 +1,4 @@
-package com.trans.config.datasource;
+package com.trans.datasource;
 
 import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.support.TransactionCallback;

@@ -1,4 +1,4 @@
-package com.trans.config.datasource;
+package com.trans.datasource;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;

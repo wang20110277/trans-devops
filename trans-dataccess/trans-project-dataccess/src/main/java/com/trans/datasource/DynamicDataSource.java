@@ -1,4 +1,4 @@
-package com.trans.config.datasource;
+package com.trans.datasource;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
