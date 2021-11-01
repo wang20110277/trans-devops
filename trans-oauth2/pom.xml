@@ -20,9 +20,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--trans-base -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>com.trans</groupId>
+            <artifactId>trans-base</artifactId>
         </dependency>
     </dependencies>
 </project>
