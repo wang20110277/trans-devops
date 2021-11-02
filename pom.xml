@@ -35,6 +35,7 @@
         <knife4j.version>2.0.2</knife4j.version>
         <skywalking.version>8.7.0</skywalking.version>
         <trans.base.version>1.0-SNAPSHOT</trans.base.version>
+        <trans.common.version>1.0-SNAPSHOT</trans.common.version>
     </properties>
 
     <dependencyManagement>
@@ -104,6 +105,11 @@
                 <groupId>com.trans</groupId>
                 <artifactId>trans-base</artifactId>
                 <version>${trans.base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.trans</groupId>
+                <artifactId>trans-common</artifactId>
+                <version>${trans.common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

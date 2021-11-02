@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>com.trans</groupId>
-            <artifactId>trans-system-common</artifactId>
+            <artifactId>trans-system-api</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

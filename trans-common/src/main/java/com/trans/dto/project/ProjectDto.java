@@ -1,11 +1,11 @@
-package com.trans.api.dto;
+package com.trans.dto.project;
 
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class TransProjectDto {
+public class ProjectDto {
     //组织机构编号
     private String organId;
     //组织机构名称

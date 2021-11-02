@@ -10,21 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>trans-common</artifactId>
-    <!-- 一般来说父级项目的packaging都为pom，packaging默认类型jar类型-->
-    <packaging>pom</packaging>
-    <modules>
-        <module>trans-app-common</module>
-        <module>trans-bpm-common</module>
-        <module>trans-build-common</module>
-        <module>trans-deploy-common</module>
-        <module>trans-issue-common</module>
-        <module>trans-open-common</module>
-        <module>trans-pipeline-common</module>
-        <module>trans-system-common</module>
-        <module>trans-user-common</module>
-        <module>trans-wiki-common</module>
-        <module>trans-project-common</module>
-    </modules>
+
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
