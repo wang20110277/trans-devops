@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trans.dao.ProjectDao">
+  <resultMap id="BaseResultMap" type="com.trans.model.Project">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="pname" jdbcType="VARCHAR" property="pname" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
+    <result column="LEAD" jdbcType="VARCHAR" property="lead" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="pkey" jdbcType="VARCHAR" property="pkey" />
+    <result column="pcounter" jdbcType="DECIMAL" property="pcounter" />
+    <result column="ASSIGNEETYPE" jdbcType="DECIMAL" property="assigneetype" />
+    <result column="AVATAR" jdbcType="DECIMAL" property="avatar" />
+    <result column="ORIGINALKEY" jdbcType="VARCHAR" property="originalkey" />
+    <result column="PROJECTTYPE" jdbcType="VARCHAR" property="projecttype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, pname, URL, LEAD, DESCRIPTION, pkey, pcounter, ASSIGNEETYPE, AVATAR, ORIGINALKEY, 
+    PROJECTTYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from project
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from project
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.trans.model.Project" useGeneratedKeys="true">
+    insert into project (pname, URL, LEAD, 
+      DESCRIPTION, pkey, pcounter, 
+      ASSIGNEETYPE, AVATAR, ORIGINALKEY, 
+      PROJECTTYPE)
+    values (#{pname,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{lead,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{pkey,jdbcType=VARCHAR}, #{pcounter,jdbcType=DECIMAL}, 
+      #{assigneetype,jdbcType=DECIMAL}, #{avatar,jdbcType=DECIMAL}, #{originalkey,jdbcType=VARCHAR}, 
+      #{projecttype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.trans.model.Project" useGeneratedKeys="true">
+    insert into project
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pname != null">
+        pname,
+      </if>
+      <if test="url != null">
+        URL,
+      </if>
+      <if test="lead != null">
+        LEAD,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="pkey != null">
+        pkey,
+      </if>
+      <if test="pcounter != null">
+        pcounter,
+      </if>
+      <if test="assigneetype != null">
+        ASSIGNEETYPE,
+      </if>
+      <if test="avatar != null">
+        AVATAR,
+      </if>
+      <if test="originalkey != null">
+        ORIGINALKEY,
+      </if>
+      <if test="projecttype != null">
+        PROJECTTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pname != null">
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="lead != null">
+        #{lead,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="pkey != null">
+        #{pkey,jdbcType=VARCHAR},
+      </if>
+      <if test="pcounter != null">
+        #{pcounter,jdbcType=DECIMAL},
+      </if>
+      <if test="assigneetype != null">
+        #{assigneetype,jdbcType=DECIMAL},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=DECIMAL},
+      </if>
+      <if test="originalkey != null">
+        #{originalkey,jdbcType=VARCHAR},
+      </if>
+      <if test="projecttype != null">
+        #{projecttype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.trans.model.Project">
+    update project
+    <set>
+      <if test="pname != null">
+        pname = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="lead != null">
+        LEAD = #{lead,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="pkey != null">
+        pkey = #{pkey,jdbcType=VARCHAR},
+      </if>
+      <if test="pcounter != null">
+        pcounter = #{pcounter,jdbcType=DECIMAL},
+      </if>
+      <if test="assigneetype != null">
+        ASSIGNEETYPE = #{assigneetype,jdbcType=DECIMAL},
+      </if>
+      <if test="avatar != null">
+        AVATAR = #{avatar,jdbcType=DECIMAL},
+      </if>
+      <if test="originalkey != null">
+        ORIGINALKEY = #{originalkey,jdbcType=VARCHAR},
+      </if>
+      <if test="projecttype != null">
+        PROJECTTYPE = #{projecttype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.trans.model.Project">
+    update project
+    set pname = #{pname,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      LEAD = #{lead,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      pkey = #{pkey,jdbcType=VARCHAR},
+      pcounter = #{pcounter,jdbcType=DECIMAL},
+      ASSIGNEETYPE = #{assigneetype,jdbcType=DECIMAL},
+      AVATAR = #{avatar,jdbcType=DECIMAL},
+      ORIGINALKEY = #{originalkey,jdbcType=VARCHAR},
+      PROJECTTYPE = #{projecttype,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>
