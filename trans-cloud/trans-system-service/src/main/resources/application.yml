@@ -28,9 +28,6 @@ spring:
 logging:
   level:
     root: WARN
-    org:
-      springframework:
-        security: DEBUG
-        web: ERROR
-    com:
-      trans: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: ERROR
+    com.trans: DEBUG

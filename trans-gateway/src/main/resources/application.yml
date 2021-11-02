@@ -18,27 +18,30 @@ spring:
           locator:
             enabled: true # 让gateway可以发现nacos中的微服务
         routes:
-        - id: auth
+        - id: trans-auth
           uri: lb://trans-auth
+          order: 1
           predicates:
           - Path=/auth/**
-          filters:
-          - StripPrefix= 1
-        - id: system
+        - id: trans-system
           uri: lb://trans-system
+          order: 2
           predicates:
           - Path=/system/**
-          filters:
-          - StripPrefix= 1
-        - id: app
+        - id: trans-app
           uri: lb://trans-app
+          order: 3
           predicates:
           - Path=/app/**
-          filters:
-          - StripPrefix= 1
-        - id: open
+        - id: trans-open
           uri: lb://trans-open
+          order: 4
           predicates:
           - Path=/open/**
-          filters:
-          - StripPrefix= 1
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG

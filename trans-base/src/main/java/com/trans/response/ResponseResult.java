@@ -1,7 +1,7 @@
 package com.trans.response;
 
 public class ResponseResult<T> {
-    private int code = 0;
+    private int code;
     private String msg;
     private T data;
 
@@ -30,10 +30,6 @@ public class ResponseResult<T> {
 
     public static <T> ResponseResult<T> error(int code, String msg, T data) {
         return new ResponseResult(code, msg, data);
-    }
-
-    public boolean isSuccess() {
-        return code == 0;
     }
 
     public int getCode() {
