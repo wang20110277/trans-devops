@@ -6,4 +6,5 @@ public interface ProjectManagerService {
     void createTransProject(ProjectDto projectDto);
     void updateTransProject(ProjectDto projectDto);
     void deleteTransProject(ProjectDto projectDto);
+    ProjectDto findById(int id);
 }

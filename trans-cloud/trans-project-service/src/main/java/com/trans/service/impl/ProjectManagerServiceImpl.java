@@ -20,4 +20,9 @@ public class ProjectManagerServiceImpl implements ProjectManagerService {
     public void deleteTransProject(ProjectDto projectDto) {
 
     }
+
+    @Override
+    public ProjectDto findById(int id) {
+        return null;
+    }
 }
