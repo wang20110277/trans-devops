@@ -28,6 +28,11 @@ spring:
             order: 2
             predicates:
               - Path=/system/**
+          - id: trans-project
+            uri: lb://trans-project
+            order: 2
+            predicates:
+              - Path=/project/**
           - id: trans-app
             uri: lb://trans-app
             order: 3

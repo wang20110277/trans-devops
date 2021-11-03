@@ -1,6 +1,6 @@
-package com.trans.controller.project;
+package com.trans.controller;
 
-import com.trans.api.service.SystemProjectService;
+import com.trans.api.service.outer.SystemProjectService;
 import com.trans.constants.ApiTypeConstant;
 import com.trans.dto.project.ProjectDto;
 import com.trans.param.project.ProjectRequestParam;
@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "项目管理")
-@RequestMapping(value = ApiTypeConstant.WEB_BASE_PATH + "/v1/project")
+@RequestMapping(value = ApiTypeConstant.WEB_BASE_PATH + "v1")
 @RestController
-public class ProjectManageController{
+public class SystemManageController {
     @Autowired
     private SystemProjectService systemProjectService;
 

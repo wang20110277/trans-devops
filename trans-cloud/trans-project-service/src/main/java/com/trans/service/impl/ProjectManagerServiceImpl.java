@@ -1,7 +1,7 @@
 package com.trans.service.impl;
 
 import com.trans.dto.project.ProjectDto;
-import com.trans.api.service.ProjectManagerService;
+import com.trans.api.service.inner.ProjectManagerService;
 import org.springframework.stereotype.Service;
 
 @Service

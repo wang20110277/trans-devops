@@ -1,4 +1,4 @@
-package com.trans.api.service;
+package com.trans.api.service.outer;
 
 import com.trans.dto.project.ProjectDto;
 import org.springframework.cloud.openfeign.FeignClient;
