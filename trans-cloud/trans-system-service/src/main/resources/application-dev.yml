@@ -13,11 +13,7 @@ spring:
       strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
       datasource:
         master:
-          url: jdbc:mysql://127.0.0.1:3306/trans_project_server?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
-          username: root
-          password: root
-        slave:
-          url: jdbc:mysql://127.0.0.1:3306/jira?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
+          url: jdbc:mysql://127.0.0.1:3306/trans_system_server?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
           username: root
           password: root
 #====================MybatisPlus====================
