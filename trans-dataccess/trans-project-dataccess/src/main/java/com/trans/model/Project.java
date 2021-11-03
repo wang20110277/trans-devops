@@ -1,5 +1,6 @@
 package com.trans.model;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,8 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Project implements Serializable {
+@TableName(value = "Project")
+public class Project{
     private Long id;
 
     private String pname;
@@ -35,6 +37,4 @@ public class Project implements Serializable {
     private String originalkey;
 
     private String projecttype;
-
-    private static final long serialVersionUID = 1L;
 }

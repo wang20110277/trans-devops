@@ -1,7 +1,14 @@
 #====================dynamic-datasource====================
 spring:
   datasource:
+    druid:
+      stat-view-servlet:
+        enabled: true
+        loginUsername: admin
+        loginPassword: 123456
     dynamic:
+      druid: #以下是支持的全局默认值
+        min-idle: 5
       primary: master #设置默认的数据源或者数据源组,默认值即为master
       strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
       datasource:
@@ -9,7 +16,7 @@ spring:
           url: jdbc:mysql://127.0.0.1:3306/trans_project_service?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
           username: root
           password: root
-        slave_1:
+        slave:
           url: jdbc:mysql://127.0.0.1:3306/jira?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
           username: root
           password: root
