@@ -1,22 +1,19 @@
-datasource:
-  connectionTestQuery: SELECT 1
-  connectionTimeoutMs: 30000
-  driverClassName: com.mysql.cj.jdbc.Driver
-  idleTimeoutMs: 3000
-  maxLifetimeMs: 1800000
-  maxPoolSize: 10
-  minIdle: 5
-  transactionTimeoutS: 30
-  master:
-    jdbcUrl: jdbc:mysql://127.0.0.1:3306/trans_project_service?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
-    password: root
-    username: root
-  slave:
-    jdbcUrl: jdbc:mysql://127.0.0.1:3306/jira?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
-    password: root
-    username: root
-
-# ====================MybatisPlus====================
+#====================dynamic-datasource====================
+spring:
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/trans_project_service?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
+          username: root
+          password: root
+        slave_1:
+          url: jdbc:mysql://127.0.0.1:3306/jira?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
+          username: root
+          password: root
+#====================MybatisPlus====================
 mybatis-plus:
   type-aliases-package: com.trans.model
   configuration:
