@@ -28,9 +28,9 @@
         <springboot.version>2.3.2.RELEASE</springboot.version>
         <springcloud.version>Hoxton.SR8</springcloud.version>
         <alibaba.cloud.version>2.2.5.RELEASE</alibaba.cloud.version>
-        <mybatis.plus.version>3.3.2</mybatis.plus.version>
+        <mybatis.plus.version>3.4.3</mybatis.plus.version>
         <dynamic.datasource.version>3.4.1</dynamic.datasource.version>
-        <druid.version>1.1.10</druid.version>
+        <druid.version>1.2.8</druid.version>
         <lombok.version>1.18.2</lombok.version>
         <knife4j.version>2.0.2</knife4j.version>
         <skywalking.version>8.7.0</skywalking.version>
