@@ -21,6 +21,12 @@
     <!-- 一般来说父级项目的packaging都为pom，packaging默认类型jar类型-->
     <packaging>pom</packaging>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.2.RELEASE</version>
+    </parent>
+
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -28,6 +34,7 @@
         <springboot.version>2.3.2.RELEASE</springboot.version>
         <springcloud.version>Hoxton.SR8</springcloud.version>
         <alibaba.cloud.version>2.2.5.RELEASE</alibaba.cloud.version>
+        <oauth2.version>2.2.5.RELEASE</oauth2.version>
         <mybatis.plus.version>3.4.3</mybatis.plus.version>
         <dynamic.datasource.version>3.4.1</dynamic.datasource.version>
         <druid.version>1.2.8</druid.version>
