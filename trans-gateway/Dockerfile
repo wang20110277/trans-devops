@@ -1,15 +1,32 @@
+# Docker image for SpringBoot file run
+# VERSION latest
+# Author: wanghuabing
+# 基础镜像使用java
 FROM java:8
 
 VOLUME /tmp
-
-EXPOSE 16800
 
 RUN echo "Asia/Shanghai" > /etc/timezone
 
 ARG JAR_FILE
 
-COPY target/${JAR_FILE} trans-gateway.jar
+COPY target/${JAR_FILE} app.jar
 
-COPY ../trans-skywalking/agent /usr/local/agent
+COPY agent /usr/local/agent
 
-ENTRYPOINT ["sh", "-c", "java -javaagent:/usr/local/agent/skywalking-agent.jar -Dskywalking.agent.service_name=trans-gateway -Dskywalking.collector.backend_service=192.168.10.30:11800 -jar trans-gateway.jar"]
+ENV JAVA_OPTS=""
+
+ENV SPRING_PROFILES_ACTIVE=""
+
+ENV SKYWALKING_OAP_SERVER=""
+
+ENV SKYWALKING_AGENT_SERVICE_NAME=""
+
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -javaagent:/usr/local/agent/skywalking-agent.jar -Dskywalking.agent.service_name=$SKYWALKING_AGENT_SERVICE_NAME -Dskywalking.collector.backend_service=$SKYWALKING_OAP_SERVER -Dspring.profiles.active=$SPRING_PROFILES_ACTIVE -jar app.jar"]
+
+#docker run --name tran-gateway --restart always \
+#     -d -p 16800:16800 \
+#     -e SPRING_PROFILES_ACTIVE="dev" \
+#     -e SKYWALKING_OAP_SERVER="192.168.10.30:11800" \
+#     -e SKYWALKING_AGENT_SERVICE_NAME="tran-gateway" \
+#     tran-gateway:latest
