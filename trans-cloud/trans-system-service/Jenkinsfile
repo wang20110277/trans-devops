@@ -1,0 +1,108 @@
+/**
+ * 声明式pipeline
+ */
+pipeline {
+    agent {
+        node{
+            label "SystemNode"
+            customWorkspace "jenkins/system/version/"
+        }
+    }
+    environment {
+        DEVOPS_IP = '192.168.10.30'
+    }
+    options {
+        timeout(time: 1, unit: 'HOURS')
+    }
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    }
+    tools {
+        maven 'maven.3.6.3'
+    }
+//    定时触发
+//    triggers {
+//        cron('H 4/* 0 0 1-5')
+//    }
+    stages {
+        stage('ready') {
+            steps {
+                sh 'printenv'
+                sh 'java -version'
+                echo "${DEVOPS_IP}"
+                script{
+                    def s = "Hello World"
+                    println s
+                }
+                echo 'Hello World'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'printenv'
+                sh 'mvn -v'
+                echo "${DEVOPS_IP}"
+                script{
+                    def s = "Hello World"
+                    println s
+                }
+                echo 'Hello World'
+            }
+        }
+        stage('test') {
+            parallel {
+                when {
+                    branch 'develop'
+                }
+                stage{
+                    agent{
+                        label "ApiTest"
+                    }
+                    steps{
+                        sh 'printenv'
+                        echo "${DEVOPS_IP}"
+                        script{
+                            def s = "Hello World"
+                            println s
+                        }
+                        echo 'ApiTest Done'
+                    }
+                }
+                stage{
+                    agent{
+                        label "UiTest"
+                    }
+                    steps{
+                        echo 'UiTest Done'
+                    }
+                }
+            }
+        }
+        stage('push') {
+            steps {
+                when {
+                    allOf {
+                        branch 'release'
+                        environment name: 'DEPLOY_TO', value: 'production'
+                    }
+                }
+                environment {
+                    ACCESS_KEY = credentials('Harbor-User')
+                }
+                sh 'printenv'
+                echo "${DEVOPS_IP}"
+                echo "${ACCESS_KEY}"
+                script{
+                    def s = "Hello World"
+                    println s
+                }
+                echo 'Hello World'
+            }
+        }
+    }
+    post{
+        always{
+            echo 'Done'
+        }
+    }
+}
