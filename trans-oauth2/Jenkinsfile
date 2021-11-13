@@ -4,8 +4,8 @@
 pipeline {
     agent {
         node{
-            label "Oauth2Node"
-            customWorkspace "jenkins/oauth/version/"
+            label "AuthNode"
+            customWorkspace "jenkins/auth/version/"
         }
     }
     environment {
