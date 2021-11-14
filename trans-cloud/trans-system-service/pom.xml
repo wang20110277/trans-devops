@@ -37,20 +37,45 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
+                    <!--<execution>-->
+                        <!--<id>tag-image</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>tag</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<image>trans:${project.version}</image>-->
+                            <!--<newName>http://192.168.10.30:5566/trans:${project.version}</newName>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                    <execution>
+                        <id>push-image</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <imageName>http://192.168.10.30:5566/trans:${project.version}</imageName>
+                        </configuration>
+                    </execution>
                 </executions>
 
                 <configuration>
+                    <!-- 指定每次构建覆盖上次的标签 -->
+                    <forceTags>true</forceTags>
                     <!--指定生成的镜像名,这里是我们的项目名-->
                     <imageName>${project.artifactId}</imageName>
                     <!--指定标签 这里指定的是镜像的版本，我们默认版本是latest-->
                     <imageTags>
                         <imageTag>latest</imageTag>
+                        <!--<imageTag>${project.version}</imageTag>-->
                     </imageTags>
                     <!-- 指定我们项目中Dockerfile文件的路径-->
                     <dockerDirectory>${project.basedir}</dockerDirectory>
 
                     <!--指定远程docker 地址-->
                     <dockerHost>http://127.0.0.1:2375</dockerHost>
+                    <!--<dockerHost>http://192.168.10.30:2375</dockerHost>-->
 
                     <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
                     <resources>
@@ -62,6 +87,8 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
+                    <serverId>Harbor</serverId>
+                    <registryUrl>http://192.168.10.30:5566</registryUrl>
                 </configuration>
             </plugin>
         </plugins>
