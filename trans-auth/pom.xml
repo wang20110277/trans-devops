@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>trans-auth</artifactId>
+    <version>1.0.3</version>
 
     <dependencies>
         <!--oauth2认证-->
@@ -90,7 +91,7 @@
                     <!--指定标签 这里指定的是镜像的版本，我们默认版本是latest-->
                     <imageTags>
                         <imageTag>latest</imageTag>
-                        <!--<imageTag>${project.version}</imageTag>-->
+                        <imageTag>${project.version}</imageTag>
                     </imageTags>
                     <!-- 指定我们项目中Dockerfile文件的路径-->
                     <dockerDirectory>${project.basedir}</dockerDirectory>
