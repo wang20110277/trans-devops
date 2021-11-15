@@ -1,108 +1,48 @@
-/**
- * 声明式pipeline
- */
 pipeline {
-    agent {
-        node{
-            label "GatewayNode"
-            customWorkspace "jenkins/gateway/version/"
-        }
-    }
+    agent any
+    // 环境变量
     environment {
-        DEVOPS_IP = '192.168.10.30'
+        HARBOR_CREDS = credentials('jenkins-harbor-creds')
     }
-    options {
-        timeout(time: 1, unit: 'HOURS')
-    }
+    // 入参定义
     parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+        string(name: 'model_name', defaultValue: 'trans-auth', description: '部署模块名称')
+        string(name: 'registry_ns', defaultValue: '192.168.10.30:5566/trans', description: '镜像命名空间')
+        string(name: 'tag_name', defaultValue: 'latest', description: 'tag名称')
     }
-    tools {
-        maven 'maven.3.6.3'
-    }
-//    定时触发
-//    triggers {
-//        cron('H 4/* 0 0 1-5')
-//    }
-    stages {
-        stage('ready') {
+    stages{
+        stage('1.检出代码') {
+            steps{
+                sh 'rm -rf /home/jenkins_home/workspace/trans/*'
+                // 检出代码
+                checkout([$class: 'GitSCM', branches: [[name: "*/main"]],
+                          doGenerateSubmoduleConfigurations: false,
+                          extensions: [],
+                          submoduleCfg: [],
+                          userRemoteConfigs: [[url: "https://github.com/wang20110277/trans-devops.git"]]])
+            }
+        }
+        stage("2.编译打包"){
+            steps{
+                // 编译打包
+                sh "cd trans-devops"
+                sh "mvn clean package -pl ${params.model_name}"
+            }
+        }
+        stage('3.推送镜像') {
             steps {
-                sh 'printenv'
-                sh 'java -version'
-                echo "${DEVOPS_IP}"
-                script{
-                    def s = "Hello World"
-                    println s
-                }
-                echo 'Hello World'
+                echo "push images "
+                sh "docker login -u ${HARBOR_CREDS_USR} -p ${HARBOR_CREDS_PSW} 192.168.10.30:5566"
+                sh "docker push ${params.registry_ns}/${params.model_name}:${params.tag_name}"
+                echo "push success! "
             }
         }
-        stage('build') {
+        stage("4.应用部署") {
             steps {
-                sh 'printenv'
-                sh 'mvn -v'
-                echo "${DEVOPS_IP}"
-                script{
-                    def s = "Hello World"
-                    println s
-                }
-                echo 'Hello World'
+                sh "kubectl apply -f  document/k8s/${params.model_name}-deployment.yaml --namespace=trans"
+                sh "kubectl apply -f  document/k8s/${params.model_name}-service.yaml --namespace=trans"
+                echo "项目部署成功"
             }
-        }
-        stage('test') {
-            parallel {
-                when {
-                    branch 'develop'
-                }
-                stage{
-                    agent{
-                        label "ApiTest"
-                    }
-                    steps{
-                        sh 'printenv'
-                        echo "${DEVOPS_IP}"
-                        script{
-                            def s = "Hello World"
-                            println s
-                        }
-                        echo 'ApiTest Done'
-                    }
-                }
-                stage{
-                    agent{
-                        label "UiTest"
-                    }
-                    steps{
-                        echo 'UiTest Done'
-                    }
-                }
-            }
-        }
-        stage('push') {
-            steps {
-                when {
-                    allOf {
-                        branch 'release'
-                        environment name: 'DEPLOY_TO', value: 'production'
-                    }
-                }
-                environment {
-                    ACCESS_KEY = credentials('Harbor-User')
-                }
-                sh 'printenv'
-                echo "${DEVOPS_IP}"
-                echo "${ACCESS_KEY}"
-                script{
-                    def s = "Hello World"
-                    println s
-                }
-                echo 'Hello World'
-            }
-        }
-    }
-    post{
-        always{
-            echo 'Done'
         }
     }
 }
