@@ -32,3 +32,6 @@
     10.1，工作流管理
     10.2，流水线管理
 ### 三，技术架构
+    框架选型：springboot,nacos-config/nameserver,open-feign,springcloudgateway,oauth2,skywalking,sentinel,seata
+    工具选型：jira,gitlab,jenkins,saltstack,docker,kubernentes,rancher,minio,xxl-job,openldap,dingding
+    中间件选型：nginx,rabbitmq,mysql,redis,elasticsearch
