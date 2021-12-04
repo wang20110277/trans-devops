@@ -6,13 +6,18 @@ spring:
     application:
       name: trans-gateway
     cloud:
+      #Nacos的配置注册
       nacos:
         config:
           file-extension: yaml
           server-addr: 127.0.0.1:8848
         discovery:
-          #Nacos的注册地址
           server-addr: 127.0.0.1:8848
+      #Sentinel熔断限流
+      sentinel:
+        transport:
+          port: 8720
+          dashboard: 127.0.0.1:8858
       gateway:
         discovery:
           locator:

@@ -13,6 +13,14 @@
     <version>1.0.3</version>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
         <!--oauth2认证-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

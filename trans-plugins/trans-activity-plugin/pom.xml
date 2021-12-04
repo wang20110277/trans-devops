@@ -11,5 +11,17 @@
 
     <artifactId>trans-activity-plugin</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring-boot-starter</artifactId>
+            <version>7.1.0.M5</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
