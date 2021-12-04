@@ -33,6 +33,7 @@
         <springboot.version>2.3.2.RELEASE</springboot.version>
         <springcloud.version>Hoxton.SR8</springcloud.version>
         <alibaba.cloud.version>2.2.5.RELEASE</alibaba.cloud.version>
+        <activiti-dependencies.version>7.1.99</activiti-dependencies.version>
         <oauth2.version>2.2.5.RELEASE</oauth2.version>
         <mybatis.plus.version>3.4.3</mybatis.plus.version>
         <dynamic.datasource.version>3.4.1</dynamic.datasource.version>
@@ -66,6 +67,13 @@
                 <version>${alibaba.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.activiti.dependencies</groupId>
+                <artifactId>activiti-dependencies</artifactId>
+                <version>${activiti-dependencies.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
             <!--lombok -->
             <dependency>
@@ -119,4 +127,24 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>alfresco</id>
+            <name>Activiti Releases</name>
+            <url>https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 </project>
