@@ -99,6 +99,13 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        stage("deploy") {
+            steps {
+                sh "kubectl apply -f  document/k8s/${params.model_name}-deployment.yaml --namespace=trans"
+                sh "kubectl apply -f  document/k8s/${params.model_name}-service.yaml --namespace=trans"
+                echo "项目部署成功"
+            }
+        }
     }
     post{
         always{
