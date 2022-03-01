@@ -4,6 +4,8 @@
 # 基础镜像使用java
 FROM java:8
 
+LABEL maintainer="wang20110277@163.com"
+
 VOLUME /tmp
 
 RUN echo "Asia/Shanghai" > /etc/timezone
