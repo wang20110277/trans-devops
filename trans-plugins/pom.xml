@@ -18,6 +18,7 @@
         <module>trans-gitlab-plugin</module>
         <module>trans-jenkins-plugin</module>
         <module>trans-activity-plugin</module>
+        <module>trans-flowable-plugin</module>
         <module>trans-dingding-plugin</module>
         <module>trans-wecom-plugin</module>
         <module>trans-ldap-plugin</module>
