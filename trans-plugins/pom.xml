@@ -31,5 +31,6 @@
         <module>trans-mongodb-plugin</module>
         <module>trans-xxljob-plugin</module>
         <module>trans-elasticjob-plugin</module>
+        <module>trans-harbor-plugin</module>
     </modules>
 </project>
