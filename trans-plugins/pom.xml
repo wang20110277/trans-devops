@@ -32,5 +32,6 @@
         <module>trans-xxljob-plugin</module>
         <module>trans-elasticjob-plugin</module>
         <module>trans-harbor-plugin</module>
+        <module>trans-drools-plugin</module>
     </modules>
 </project>
