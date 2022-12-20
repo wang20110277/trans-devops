@@ -2,30 +2,29 @@ package com.trans.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trans.dao.TransProjectDao;
-import com.trans.dto.project.ProjectDto;
-import com.trans.api.service.inner.ProjectManagerService;
 import com.trans.model.TransProject;
+import com.trans.service.inner.ProjectManagerService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProjectManagerServiceImpl extends ServiceImpl<TransProjectDao, TransProject> implements ProjectManagerService {
     @Override
-    public void createTransProject(ProjectDto projectDto) {
+    public void createTransProject(TransProject projectDto) {
 
     }
 
     @Override
-    public void updateTransProject(ProjectDto projectDto) {
+    public void updateTransProject(TransProject projectDto) {
 
     }
 
     @Override
-    public void deleteTransProject(ProjectDto projectDto) {
+    public void deleteTransProject(TransProject projectDto) {
 
     }
 
     @Override
-    public ProjectDto findById(int id) {
+    public TransProject findById(int id) {
         return null;
     }
 }

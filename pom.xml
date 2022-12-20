@@ -9,9 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>trans-base</module>
-        <module>trans-api</module>
         <module>trans-common</module>
-        <module>trans-dataccess</module>
         <module>trans-plugins</module>
         <module>trans-gateway</module>
         <module>trans-auth</module>

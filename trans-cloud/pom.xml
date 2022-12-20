@@ -15,14 +15,14 @@
     <modules>
         <module>trans-system-service</module>
         <module>trans-app-service</module>
+        <module>trans-api-service</module>
+        <module>trans-open-service</module>
         <module>trans-user-service</module>
         <module>trans-wiki-service</module>
         <module>trans-build-service</module>
         <module>trans-deploy-service</module>
-        <module>trans-bpm-service</module>
         <module>trans-pipeline-service</module>
         <module>trans-issue-service</module>
-        <module>trans-open-service</module>
         <module>trans-project-service</module>
         <module>trans-test-service</module>
     </modules>
@@ -39,6 +39,10 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
         <!--skywalking-->
         <dependency>
             <groupId>org.apache.skywalking</groupId>
@@ -48,10 +52,34 @@
             <groupId>org.apache.skywalking</groupId>
             <artifactId>apm-toolkit-trace</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
         <!--trans-base -->
         <dependency>
             <groupId>com.trans</groupId>
             <artifactId>trans-base</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.trans</groupId>
+            <artifactId>trans-common</artifactId>
         </dependency>
     </dependencies>
 </project>
