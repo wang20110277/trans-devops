@@ -10,9 +10,9 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
 @Api(tags = "项目管理")
 @RequestMapping(value = ApiTypeConstant.WEB_BASE_PATH + "v1")
-@RestController
 public class SystemManageController {
     @Autowired
     private SystemProjectService systemProjectService;

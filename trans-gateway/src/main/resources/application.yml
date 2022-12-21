@@ -9,7 +9,7 @@ spring:
       #Nacos的配置注册
       nacos:
         config:
-          file-extension: yaml
+          file-extension: yml
           server-addr: 127.0.0.1:8848
         discovery:
           server-addr: 127.0.0.1:8848
@@ -18,36 +18,17 @@ spring:
         transport:
           port: 8720
           dashboard: 127.0.0.1:8858
+      #Gateway网关路由
       gateway:
         discovery:
           locator:
             enabled: true # 让gateway可以发现nacos中的微服务
         routes:
-          - id: trans-auth
-            uri: lb://trans-auth
-            order: 1
-            predicates:
-              - Path=/auth/**
-          - id: trans-system
-            uri: lb://trans-system
-            order: 2
-            predicates:
-              - Path=/system/**
-          - id: trans-project
-            uri: lb://trans-project
-            order: 2
-            predicates:
-              - Path=/project/**
-          - id: trans-app
-            uri: lb://trans-app
-            order: 3
-            predicates:
-              - Path=/app/**
-          - id: trans-open
-            uri: lb://trans-open
-            order: 4
-            predicates:
-              - Path=/open/**
+        - id: trans-system
+          uri: lb://trans-system
+          predicates:
+          - Path=/system/**
+
 logging:
   level:
     org.springframework.cloud.gateway: TRACE
