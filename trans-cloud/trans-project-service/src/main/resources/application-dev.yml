@@ -16,10 +16,6 @@ spring:
           url: jdbc:mysql://127.0.0.1:3306/trans_project_server?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
           username: root
           password: root
-        slave:
-          url: jdbc:mysql://127.0.0.1:3306/jira?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
-          username: root
-          password: root
 #====================MybatisPlus====================
 mybatis-plus:
   type-aliases-package: com.trans.model

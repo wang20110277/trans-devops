@@ -8,10 +8,12 @@ import com.trans.service.outer.SystemProjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+@Api(tags = "系统管理")
+@RefreshScope
 @RestController
-@Api(tags = "项目管理")
 @RequestMapping(value = ApiTypeConstant.WEB_BASE_PATH + "v1")
 public class SystemManageController {
     @Autowired

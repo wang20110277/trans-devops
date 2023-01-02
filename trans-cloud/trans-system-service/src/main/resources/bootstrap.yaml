@@ -1,0 +1,17 @@
+server:
+  port: 16801
+spring:
+  application:
+    name: trans-system
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        group: system
+        namespace: 28b05a41-7d44-4398-afd6-c527368a26e2
+      discovery:
+        #Nacos的注册地址
+        server-addr: 127.0.0.1:8848
+        group: system
+        namespace: 28b05a41-7d44-4398-afd6-c527368a26e2
