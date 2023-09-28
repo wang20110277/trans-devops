@@ -23,7 +23,7 @@
         <module>trans-pipeline-service</module>
         <module>trans-issue-service</module>
         <module>trans-project-service</module>
-        <module>trans-test-service</module>
+        <module>trans-quality-service</module>
     </modules>
     <dependencies>
         <dependency>
