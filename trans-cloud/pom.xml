@@ -17,7 +17,6 @@
         <module>trans-app-service</module>
         <module>trans-api-service</module>
         <module>trans-open-service</module>
-        <module>trans-user-service</module>
         <module>trans-wiki-service</module>
         <module>trans-build-service</module>
         <module>trans-deploy-service</module>
